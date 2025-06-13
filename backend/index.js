@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use("/user", UserRoute)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use("/api/resume", ResumeRoute);
+app.use("/resume", ResumeRoute);
 
 // app.get("/", (req, res) => {
 //   res.send("Welcome to the API!");

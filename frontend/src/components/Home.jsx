@@ -38,7 +38,7 @@ function Home() {
     formData.append("resume", file);
 
     try {
-      const response = await axios.post("/api/api/resume/upload", formData,
+      const response = await axios.post("/api/resume/upload", formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
