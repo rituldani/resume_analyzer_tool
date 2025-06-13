@@ -19,5 +19,38 @@ A smart full-stack application that parses resumes in PDF format, extracts key i
 - **Database:** MongoDB + Mongoose
 - **Deployment:** Render
 
-## 📦 Folder Structure
 
+## 🧪 How to Run Locally
+
+### 1. Clone the repository
+```
+    git clone https://github.com/your-username/resume-analyzer.git
+cd resume-analyzer
+```
+### 2. Install dependencies
+
+```
+  #frontend
+  cd frontend
+  npm install
+
+  #backend
+  cd backend
+  npm install
+```
+### 3. Set up your .env file
+```
+  in backend/.env
+  PORT=5000
+  MONGODB_URI=mongodb+srv://<your-connection-string>
+  CORS_ORIGIN=http://localhost:5173
+```
+### 4. Run the app
+```
+  ##frontend
+  cd frontend
+  npm run dev
+  ##backend
+  cd backend
+  npm start
+```
