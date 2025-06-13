@@ -9,9 +9,19 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
-    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: 'https://resume-analyzer-tool-backend-azz8.onrender.com',
+        // target: 'http://localhost:3000', // LOCAL backend during dev
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
-  preview: {
-    allowedHosts: ['resume-analyzer-tool.onrender.com']
-  }
+  // server: {
+  //   host: '0.0.0.0',
+  // },
+  // preview: {
+  //   allowedHosts: ['resume-analyzer-tool.onrender.com']
+  // }
 })

@@ -11,7 +11,7 @@ function Home() {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/user/logout");
+      const res = await axios.post("/api/user/logout");
       localStorage.removeItem("Info");
       // Cookies.remove("jwt");
       localStorage.removeItem("Token")
@@ -38,7 +38,7 @@ function Home() {
     formData.append("resume", file);
 
     try {
-      const response = await axios.post("http://localhost:3000/api/resume/upload", formData,
+      const response = await axios.post("/api/api/resume/upload", formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",

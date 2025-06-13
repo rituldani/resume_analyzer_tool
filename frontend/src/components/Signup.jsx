@@ -34,7 +34,7 @@ function Signup() {
     // console.log({userInfo})
 
     try {
-      const response = await axios.post("http://localhost:3000/user/signup", userInfo, {
+      const response = await axios.post("/api/user/signup", userInfo, {
         withCredentials: true
       });
       console.log(response.data)

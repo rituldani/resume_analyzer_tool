@@ -12,7 +12,7 @@ const ResumeList = () => {
     useEffect(() => {
         const fetchResumes = async (req, res) => {
             try {
-                const response = await axios.get("http://localhost:3000/api/resume/all");
+                const response = await axios.get("/api/api/resume/all");
                 console.log(response.data);
                 setResumes(response.data.data);
             }
@@ -30,7 +30,7 @@ const ResumeList = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this resume?");
         if (confirmDelete) {
             try {
-                await axios.delete(`http://localhost:3000/api/resume/${id}`);
+                await axios.delete(`/api/api/resume/${id}`);
                 setResumes(prev => prev.filter(resume => resume._id !== id));
                 toast.success("Deleted sucessfully!!");
             }
