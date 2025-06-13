@@ -1,0 +1,23 @@
+# 🧠 Resume Analyzer Tool
+
+A smart full-stack application that parses resumes in PDF format, extracts key information, matches user skills to job roles, and provides feedback and matched job suggestions.
+
+## 🚀 Features
+
+- Upload and parse PDF resumes
+- Extract fields: Name, Email, Phone, Education, Experience, Skills
+- Analyze resume quality and generate suggestions
+- Match candidate skills to relevant job listings
+- Resume dashboard with deletion and detail views
+- Toast alerts and confirmation modals
+- MongoDB, Express, React, Node.js stack
+
+## 🛠 Tech Stack
+
+- **Frontend:** React, Tailwind CSS, Axios, React-Hot-Toast
+- **Backend:** Node.js, Express, Multer, pdf-parse
+- **Database:** MongoDB + Mongoose
+- **Deployment:** Render
+
+## 📦 Folder Structure
+
