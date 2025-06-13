@@ -21,7 +21,7 @@ export default defineConfig({
   // server: {
   //   host: '0.0.0.0',
   // },
-  // preview: {
-  //   allowedHosts: ['resume-analyzer-tool.onrender.com']
-  // }
+  preview: {
+    allowedHosts: ['resume-analyzer-tool.onrender.com']
+  }
 })
