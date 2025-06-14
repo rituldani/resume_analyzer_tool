@@ -20,7 +20,12 @@ const resumeSchema = new mongoose.Schema({
       skills: [String],
       matchPercentage: Number
     }
-  ]
+  ],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 }, { timestamps: true });
 
 export const Resume = mongoose.model('Resume', resumeSchema);

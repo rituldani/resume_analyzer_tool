@@ -10,9 +10,17 @@ const ResumeList = () => {
     const [selectedResume, setSelectedResume] = useState(null);
 
     useEffect(() => {
-        const fetchResumes = async (req, res) => {
+        const fetchResumes = async () => {
             try {
-                const response = await axios.get("/api/resume/all");
+                const token = localStorage.getItem("Token"); // ✅ Get JWT from storage
+                if (!token) throw new Error("No token found");
+
+                const response = await axios.get("/api/resume/all", {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                // console.log(response.data.data);
                 console.log(response.data);
                 setResumes(response.data.data);
             }
@@ -23,6 +31,7 @@ const ResumeList = () => {
             }
         };
 
+        setLoading(true);
         fetchResumes();
     }, []);
 
@@ -55,7 +64,7 @@ const ResumeList = () => {
             {
                 !Array.isArray(resumes) || resumes.length === 0
                     ? (
-                        <p>No resumes found.</p>
+                        <p>No resume found.</p>
                     ) : (
                         // <div className="overflow-x-auto">
                         //     <table className="table-auto w-full border border-gray-200">

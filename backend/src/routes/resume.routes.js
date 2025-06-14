@@ -6,6 +6,7 @@ import {
   getAllResumes,
   deleteResume
 } from '../controllers/resume.controlle.js';
+import { authenticateUser } from "../middleware/authenticateUser.js";
 
 const router = express.Router();
 const uploadPath = path.join('uploads');
@@ -16,8 +17,8 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-router.post('/upload', upload.single('resume'), uploadResume);
-router.get('/all', getAllResumes);
-router.delete('/:id', deleteResume);
+router.post('/upload', authenticateUser, upload.single('resume'), uploadResume);
+router.get('/all',authenticateUser, getAllResumes);
+router.delete('/:id',authenticateUser, deleteResume);
 
 export default router;

@@ -1,4 +1,4 @@
-import User from "../models/user.models.js"
+import { User } from "../models/user.models.js"
 import bcrypt from "bcryptjs"
 import createTokenAndSaveCookie from "../jwt/generateToken.js"
 
