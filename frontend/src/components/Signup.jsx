@@ -7,7 +7,6 @@ import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthProvider.jsx';
 
 function Signup() {
-  // const {authUser, setAuthUser} = useAuth()
   const [authUser, setAuthUser] = useAuth()
   const {
     register,
@@ -30,8 +29,6 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword
     }
-    // console.log({data})
-    // console.log({userInfo})
 
     try {
       const response = await axios.post("/api/user/signup", userInfo, {

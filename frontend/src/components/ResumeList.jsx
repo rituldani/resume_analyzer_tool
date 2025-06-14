@@ -12,7 +12,7 @@ const ResumeList = () => {
     useEffect(() => {
         const fetchResumes = async () => {
             try {
-                const token = localStorage.getItem("Token"); // ✅ Get JWT from storage
+                const token = localStorage.getItem("Token");
                 if (!token) throw new Error("No token found");
 
                 const response = await axios.get("/api/resume/all", {
@@ -20,7 +20,6 @@ const ResumeList = () => {
                         Authorization: `Bearer ${token}`
                     }
                 });
-                // console.log(response.data.data);
                 console.log(response.data);
                 setResumes(response.data.data);
             }

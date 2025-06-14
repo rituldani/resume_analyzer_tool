@@ -38,7 +38,7 @@ function Home() {
     formData.append("resume", file);
 
     try {
-      const token = localStorage.getItem("Token"); // ✅ Get JWT from storage
+      const token = localStorage.getItem("Token");
       if (!token) throw new Error("No token found");
 
       const response = await axios.post("/api/resume/upload", formData,

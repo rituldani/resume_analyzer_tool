@@ -8,7 +8,6 @@ import { useAuth } from '../context/AuthProvider';
 
 
 function Login() {
-  // const {authUser, setAuthUser} = useAuth()
   const [authUser, setAuthUser] = useAuth()
   const {
         register,
@@ -27,14 +26,12 @@ function Login() {
         withCredentials: true
       });
       console.log(response.data);
-      // console.log(authUser)
       if (response.data) {
         toast.success("Login successfully");
       }
       localStorage.setItem('Info', JSON.stringify(response.data));
       localStorage.setItem("Token", response.data.token);
       setAuthUser(response.data);
-      // console.log(authUser);
     }
     catch (error) {
       if (error.response) {

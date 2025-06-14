@@ -5,13 +5,11 @@ import { Resume } from '../models/resume.model.js';
 import { matchJobs } from "../utils/jobMatcher.js";
 
 const uploadResume = async (req, res) => {
-  // console.log(req.user)
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
 
   try {
-    console.log(req.user._id)
     // 1. Read the uploaded PDF
     const filePath = req.file.path;
     const fileBuffer = await fs.readFile(filePath);
@@ -33,10 +31,8 @@ const uploadResume = async (req, res) => {
       suggestions: analysisResult.suggestions,
       matchedJobs,
       user: req.user._id,
-      // uploadedBy: req.user._id
     });
     await newResume.save();
-    // console.log(newResume);
 
     res.status(200).json({
       message: 'Resume uploaded and parsed',
@@ -50,9 +46,7 @@ const uploadResume = async (req, res) => {
 
 const getAllResumes = async (req, res) => {
   try {
-    // console.log(req.user._id)
     const resumes = await Resume.find({ user: req.user._id }).sort({ createdAt: -1 });
-    // const resumes = await Resume.find().sort({ createdAt: -1 });
     res.status(200).json({
       message: 'Resumes fetched successfully',
       data: resumes,
