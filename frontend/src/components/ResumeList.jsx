@@ -38,7 +38,15 @@ const ResumeList = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this resume?");
         if (confirmDelete) {
             try {
-                await axios.delete(`/api/resume/${id}`);
+                const token = localStorage.getItem("Token");
+                if (!token) throw new Error("No token found");
+
+                await axios.delete(`/api/resume/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                // await axios.delete(`/api/resume/${id}`);
                 setResumes(prev => prev.filter(resume => resume._id !== id));
                 toast.success("Deleted sucessfully!!");
             }
